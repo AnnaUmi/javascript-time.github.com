@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript setTimeout clock</title>
+</head>
+<style>
+body{
+	background-color: #1d0f29;
+}
+#clock{
+	color: #fff;
+	text-align: center;
+	font-size: 100px;
+	border: 10px solid #da95e4;
+	width: 800px;
+	margin: 0 auto;
+	margin-top: 300px;
+	box-shadow: 0 0 15px #fff;
+}
+	.h{
+	color: #7f46aa;
+	}
+	.m{
+		color: #da95e4;
+	}
+	.s{
+		color: #dbbcab;
+	}
+
+</style>
+<body>
+<div id="clock"><span class="h"></span> : <span class="m"></span> : <span class="s"></span></div>
+<script>
+var clock = document.getElementById('clock');
+function startTime(){
+	var today = new Date();
+	var hours = today.getHours();
+	var minutes = today.getMinutes();
+	var seconds = today.getSeconds();
+	minutes = check(minutes);
+	seconds = check(seconds);
+	newHours = check(hours);
+	clock.children[0].innerHTML = newHours;
+	clock.children[1].innerHTML = minutes;
+	clock.children[2].innerHTML = seconds
+	t = setTimeout('startTime()', 500);
+}
+function check(i){
+	if(i<10){
+		i ="0" + 1;
+	}
+	return i;
+}
+
+startTime();
+</script>
+</body>
+</html>
